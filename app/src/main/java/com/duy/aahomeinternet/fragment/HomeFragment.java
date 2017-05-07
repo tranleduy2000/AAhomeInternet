@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 import com.duy.aahomeinternet.EnvironmentTask;
 import com.duy.aahomeinternet.FirebaseListener;
-import com.duy.aahomeinternet.MapsActivity;
+import com.duy.aahomeinternet.activities.MapsActivity;
 import com.duy.aahomeinternet.R;
-import com.duy.aahomeinternet.RoofActivity;
+import com.duy.aahomeinternet.activities.RoofActivity;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 
 import java.util.concurrent.atomic.AtomicBoolean;

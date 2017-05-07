@@ -1,4 +1,4 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 
 import android.content.Context;
@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.data.Preferences;
 import com.duy.aahomeinternet.items.DeviceItem;
 import com.duy.aahomeinternet.utils.Variable;
@@ -49,7 +50,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                     Toast.makeText(AddDeviceActivity.this, "ID can not empty", Toast.LENGTH_SHORT).show();
                 } else {
                     int _id = Integer.parseInt(id);
-                    DeviceItem deviceItem = new DeviceItem(name, des,  _id, imgId);
+                    DeviceItem deviceItem = new DeviceItem(name, des, _id, imgId);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(Preferences.DEVICE, deviceItem);
                     Intent intent = getIntent();
@@ -70,7 +71,18 @@ public class AddDeviceActivity extends AppCompatActivity {
 
     }
 
-    class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        CardView cardView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.img);
+            cardView = (CardView) itemView.findViewById(R.id.cardView);
+        }
+    }
+
+    class CustomAdapter extends RecyclerView.Adapter<ViewHolder> {
         private int[] imageIds = {};
         private Context context;
 
@@ -104,15 +116,6 @@ public class AddDeviceActivity extends AppCompatActivity {
             return imageIds.length;
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            ImageView imageView;
-            CardView cardView;
 
-            public ViewHolder(View itemView) {
-                super(itemView);
-                imageView = (ImageView) itemView.findViewById(R.id.img);
-                cardView = (CardView) itemView.findViewById(R.id.cardView);
-            }
-        }
     }
 }

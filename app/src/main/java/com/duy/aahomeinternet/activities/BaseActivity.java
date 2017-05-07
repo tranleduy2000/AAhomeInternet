@@ -1,4 +1,4 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;

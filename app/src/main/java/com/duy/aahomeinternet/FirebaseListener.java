@@ -28,7 +28,7 @@ public class FirebaseListener {
         Firebase.setAndroidContext(context);
         mFirebase = new Firebase(URL_FIREBASE);
         mUser = FirebaseAuth.getInstance().getCurrentUser();
-       // Log.d(TAG, mUser.getUid());
+        // Log.d(TAG, mUser.getUid());
     }
 
     public void setPin(int pin, boolean value) {

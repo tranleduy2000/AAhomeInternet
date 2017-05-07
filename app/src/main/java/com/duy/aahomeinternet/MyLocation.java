@@ -19,33 +19,6 @@ public class MyLocation {
     boolean gps_enabled = false;
     private boolean network_enabled;
     private Context context;
-    LocationListener locationListenerNetwork = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            timer1.cancel();
-            locationResult.gotLocation(location);
-            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            lm.removeUpdates(this);
-            lm.removeUpdates(locationListenerGps);
-        }
-
-        public void onProviderDisabled(String provider) {
-        }
-
-        public void onProviderEnabled(String provider) {
-        }
-
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-        }
-    };
     LocationListener locationListenerGps = new LocationListener() {
         public void onLocationChanged(Location location) {
             timer1.cancel();
@@ -62,6 +35,33 @@ public class MyLocation {
             }
             lm.removeUpdates(this);
             lm.removeUpdates(locationListenerNetwork);
+        }
+
+        public void onProviderDisabled(String provider) {
+        }
+
+        public void onProviderEnabled(String provider) {
+        }
+
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    };
+    LocationListener locationListenerNetwork = new LocationListener() {
+        public void onLocationChanged(Location location) {
+            timer1.cancel();
+            locationResult.gotLocation(location);
+            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            lm.removeUpdates(this);
+            lm.removeUpdates(locationListenerGps);
         }
 
         public void onProviderDisabled(String provider) {
@@ -144,7 +144,8 @@ public class MyLocation {
                     // to handle the case where the user grants the permission. See the documentation
                     // for ActivityCompat#requestPermissions for more details.
                     return;
-                }gps_loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                }
+            gps_loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (network_enabled)
                 net_loc = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 

@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * Created by tranleduy on 24-May-16.
  */
-public class ModeItem implements Serializable {    public static final long serialVersionUID = 2L;
+public class ModeItem implements Serializable {
+    public static final long serialVersionUID = 2L;
 
     private int id;
     private String name;

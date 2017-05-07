@@ -1,4 +1,4 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.data.Preferences;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

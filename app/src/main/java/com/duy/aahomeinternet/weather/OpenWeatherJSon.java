@@ -32,7 +32,6 @@ public class OpenWeatherJSon {
     }
 
 
-
     public Sys getSys() {
         return sys;
     }

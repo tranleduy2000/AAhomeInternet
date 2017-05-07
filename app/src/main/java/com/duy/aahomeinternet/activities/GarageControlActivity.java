@@ -1,30 +1,29 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.utils.Protocol;
 
-public class DoorControlActivity extends AppCompatActivity {
+public class GarageControlActivity extends AppCompatActivity {
 
     private boolean connected = false;
     private Button btnClose, btnOpen;
-    private SwitchCompat switchCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_door_control);
+        setContentView(R.layout.activity_garage_control);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Cửa chính");
+        getSupportActionBar().setTitle("Cửa nhà xe");
         getData();
         initView();
     }
@@ -32,34 +31,14 @@ public class DoorControlActivity extends AppCompatActivity {
     private void initView() {
         btnOpen = (Button) findViewById(R.id.btnOpenDoor);
         btnClose = (Button) findViewById(R.id.btnCloseDoor);
-        switchCompat = (SwitchCompat) findViewById(R.id.swAuto);
-        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                btnClose.setEnabled(isChecked);
-                btnOpen.setEnabled(isChecked);
-            }
-        });
-        switchCompat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (connected) {
-                    boolean isOn = switchCompat.isChecked();
-                    String cmd = Protocol.POST + Protocol.SET_AUTO_DOOR + (isOn ? "1" : "0");
-              //      socket.sendMessenge(cmd);
-                } else {
-                    Toast.makeText(DoorControlActivity.this, "Không có kết nối", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
         btnOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (connected) {
                     String cmd = Protocol.POST + Protocol.OPEN_DOOR;
-              //      socket.sendMessenge(cmd);
+                    //  socket.sendMessenge(cmd);
                 } else {
-                    Toast.makeText(DoorControlActivity.this, "Không có kết nối", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GarageControlActivity.this, "Không có kết nối", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -69,9 +48,9 @@ public class DoorControlActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (connected) {
                     String cmd = Protocol.POST + Protocol.CLOSE_DOOR;
-              //      socket.sendMessenge(cmd);
+                    //socket.sendMessen/ge(cmd);
                 } else {
-                    Toast.makeText(DoorControlActivity.this, "Không có kết nối", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GarageControlActivity.this, "Không có kết nối", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -82,7 +61,9 @@ public class DoorControlActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data");
         String ip = bundle.getString("ip");
         int port = bundle.getInt("port");
-
+//        socket = new Socket(ip, port);
+//        socket.setServerListener(this);
+//        socket.connect();
     }
 
 
@@ -93,4 +74,5 @@ public class DoorControlActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

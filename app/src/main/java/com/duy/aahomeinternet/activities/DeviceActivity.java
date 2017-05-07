@@ -1,4 +1,4 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 
 import android.content.Context;
@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.data.Preferences;
 import com.duy.aahomeinternet.items.DeviceItem;
 import com.duy.aahomeinternet.utils.Variable;

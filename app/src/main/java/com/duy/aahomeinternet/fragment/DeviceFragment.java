@@ -17,9 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.duy.aahomeinternet.DeviceActivity;
+import com.duy.aahomeinternet.activities.DeviceActivity;
 import com.duy.aahomeinternet.FirebaseListener;
-import com.duy.aahomeinternet.MainActivity;
+import com.duy.aahomeinternet.activities.MainActivity;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.adapter.DeviceAdapter;
 import com.duy.aahomeinternet.adapter.EventListener;

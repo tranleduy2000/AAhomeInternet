@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.duy.aahomeinternet.MainActivity;
+import com.duy.aahomeinternet.activities.MainActivity;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.data.Database;
 import com.duy.aahomeinternet.items.ChartItem;

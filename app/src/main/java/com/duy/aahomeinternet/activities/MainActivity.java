@@ -1,4 +1,4 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 
 import android.content.ActivityNotFoundException;
@@ -33,6 +33,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.R;
+import com.duy.aahomeinternet.Settings;
 import com.duy.aahomeinternet.data.Database;
 import com.duy.aahomeinternet.data.Preferences;
 import com.duy.aahomeinternet.fragment.SectionsPagerAdapter;

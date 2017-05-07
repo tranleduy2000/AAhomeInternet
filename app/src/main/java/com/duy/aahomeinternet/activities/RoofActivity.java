@@ -1,4 +1,4 @@
-package com.duy.aahomeinternet;
+package com.duy.aahomeinternet.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
