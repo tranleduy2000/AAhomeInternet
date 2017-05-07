@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.items.DeviceItem;
 import com.google.firebase.database.DataSnapshot;
@@ -33,14 +33,14 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.ViewHolder
     private ArrayList<DeviceItem> deviceItems = new ArrayList<>();
     private Context context;
     private EventListener eventListener = null;
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
     private Handler handler = new Handler();
 
     public DeviceAdapter(Context context, EventListener eventListener,
-                         FirebaseListener firebaseListener, ArrayList<DeviceItem> items) {
+                         FirebaseHandler firebaseHandler, ArrayList<DeviceItem> items) {
         this.context = context;
         this.eventListener = eventListener;
-        this.mFirebase = firebaseListener;
+        this.mFirebase = firebaseHandler;
         this.deviceItems = items;
     }
 

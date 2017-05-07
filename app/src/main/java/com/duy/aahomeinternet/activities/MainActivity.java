@@ -33,7 +33,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.Settings;
 import com.duy.aahomeinternet.data.Database;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements
     private Database database;
     private TabLayout tabLayout;
     private TextView txtLightSensor;
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
     private GoogleApiClient mGoogleApiClient;
     private LocationManager locationManager;
     private String provider;
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mFirebase = new FirebaseListener(this);
+        mFirebase = new FirebaseHandler(this);
         initData();
         initView();
 

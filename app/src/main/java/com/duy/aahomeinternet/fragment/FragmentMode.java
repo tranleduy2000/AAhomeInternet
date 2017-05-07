@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.data.Preferences;
 import com.duy.aahomeinternet.utils.Protocol;
@@ -37,12 +37,12 @@ public class FragmentMode extends Fragment {
     private ImageView imgSecutiry;
     private Preferences preferences;
     private TextView txtValueAnalog;
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mFirebase = new FirebaseListener(getActivity().getApplicationContext());
+        mFirebase = new FirebaseHandler(getActivity().getApplicationContext());
         preferences = new Preferences(getActivity().getApplicationContext());
         v = inflater.inflate(R.layout.layout_mode, container, false);
         refreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.srMode);

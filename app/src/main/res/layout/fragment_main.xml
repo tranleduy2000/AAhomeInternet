@@ -21,7 +21,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="16dp"
@@ -52,7 +51,6 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imgReload"
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:layout_alignParentLeft="true"
@@ -148,7 +146,6 @@
                             app:donut_text_size="16dp" />
 
                         <TextView
-                            android:id="@+id/textView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -200,7 +197,6 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="16dp"
@@ -347,7 +343,6 @@
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/imgDoor"
                                 android:layout_width="64dp"
                                 android:layout_height="64dp"
                                 android:layout_alignParentTop="true"
@@ -393,7 +388,6 @@
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/img_roof"
                                 android:layout_width="64dp"
                                 android:layout_height="64dp"
                                 android:layout_alignParentTop="true"

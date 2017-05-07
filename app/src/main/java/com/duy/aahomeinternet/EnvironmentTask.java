@@ -9,20 +9,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Created by edoga on 15-Oct-16.
+ * Created by Duy on 15-Oct-16.
  */
 
 public class EnvironmentTask {
     private Context mContext;
     private EnvironmentListener mListener;
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
 
-    public EnvironmentTask(Context mContext, FirebaseListener firebase) {
+    public EnvironmentTask(Context mContext, FirebaseHandler firebase) {
         this.mContext = mContext;
         this.mFirebase = firebase;
     }
 
-    public EnvironmentTask(Context context, FirebaseListener firebase, EnvironmentListener listener) {
+    public EnvironmentTask(Context context, FirebaseHandler firebase, EnvironmentListener listener) {
         this.mContext = context;
         this.mFirebase = firebase;
         this.mListener = listener;
@@ -92,9 +92,8 @@ public class EnvironmentTask {
     }
 
     /**
-     * Created by edoga on 15-Oct-16.
+     * Created by Duy on 15-Oct-16.
      */
-
     public interface EnvironmentListener {
 
         void onTemperatureChange(int temp);

@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.duy.aahomeinternet.activities.DeviceActivity;
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.activities.MainActivity;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.adapter.DeviceAdapter;
@@ -53,7 +53,7 @@ public class DeviceFragment extends Fragment implements EventListener {
     private DeviceAdapter deviceAdapter;
     private SwipeRefreshLayout mReresh;
     private Database database;
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
     private boolean isRunning = false;
 
     @Override
@@ -62,7 +62,7 @@ public class DeviceFragment extends Fragment implements EventListener {
         this.context = context;
         this.activity = (MainActivity) context;
         this.database = new Database(context);
-        this.mFirebase = new FirebaseListener(context);
+        this.mFirebase = new FirebaseHandler(context);
     }
 
     @Nullable

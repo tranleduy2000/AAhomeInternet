@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.duy.aahomeinternet.utils.Protocol;
-import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -13,31 +12,32 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * Created by Duy on 19/7/2016
  */
-public class FirebaseListener {
+public class FirebaseHandler {
     private static final String PIN = "pin";
     private static final String USERS = "users";
     private static final String MODE = "mode";
     private static final String URL_FIREBASE = "https://smarthome-f6176.firebaseio.com";
-    private static final String TAG = FirebaseListener.class.getName();
+    private static final String TAG = FirebaseHandler.class.getName();
     private Context mContext;
     private FirebaseUser mUser;
-    private Firebase mFirebase;
+    private FirebaseDatabase mFirebase;
 
-    public FirebaseListener(Context context) {
+    public FirebaseHandler(Context context) {
         this.mContext = context;
-        Firebase.setAndroidContext(context);
-        mFirebase = new Firebase(URL_FIREBASE);
+        mFirebase = FirebaseDatabase.getInstance();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         // Log.d(TAG, mUser.getUid());
     }
 
     public void setPin(int pin, boolean value) {
-        mFirebase.child(USERS).child(mUser.getUid()).
+        Log.d(TAG, "setPin() called with: pin = [" + pin + "], value = [" + value + "]");
+        mFirebase.getReference(USERS).child(mUser.getUid()).
                 child(PIN).child(String.valueOf(pin)).setValue(value);
     }
 
     public void setMode(String mode, boolean value) {
-        mFirebase.child(USERS).child(mUser.getUid())
+        Log.d(TAG, "setMode() called with: mode = [" + mode + "], value = [" + value + "]");
+        mFirebase.getReference(USERS).child(mUser.getUid())
                 .child(MODE).child(String.valueOf(mode)).setValue(value);
     }
 
@@ -61,7 +61,7 @@ public class FirebaseListener {
      * @param status
      */
     public void setAutoLight(int id, boolean status) {
-        Log.d(TAG, "setAutoLight: " + id + " " + status);
+        Log.d(TAG, "setAutoLight() called with: id = [" + id + "], status = [" + status + "]");
         String url2 = "users/" + getUid() + "/" + "mode/" + Protocol.AUTO_LIGHT_DIGITAL;
         final DatabaseReference digital = FirebaseDatabase.getInstance().getReference(url2);
         String url = "users/" + getUid() + "/" + "mode/" + Protocol.AUTO_LIGHT_ANALOG;
@@ -84,11 +84,8 @@ public class FirebaseListener {
         }
     }
 
-    public Context getmContext() {
+    public Context getContext() {
         return mContext;
     }
 
-    public void setmContext(Context mContext) {
-        this.mContext = mContext;
-    }
 }

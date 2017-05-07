@@ -2,7 +2,7 @@ package com.duy.aahomeinternet.utils;
 
 import android.util.Log;
 
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.data.Database;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -10,7 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 /**
- * Created by edoga on 15-Oct-16.
+ * Created by Duy on 15-Oct-16.
  */
 
 public class VoiceUtils {
@@ -27,11 +27,11 @@ public class VoiceUtils {
     public static final int NOT_FOUND = -1;
     private ArrayList<Translate> arrTranslate = new ArrayList<>();
     private Database database;
-    private FirebaseListener firebaseListener;
+    private FirebaseHandler firebaseHandler;
 
-    public VoiceUtils(FirebaseListener firebaseListener) {
-        this.firebaseListener = firebaseListener;
-        this.database = new Database(firebaseListener.getmContext());
+    public VoiceUtils(FirebaseHandler firebaseHandler) {
+        this.firebaseHandler = firebaseHandler;
+        this.database = new Database(firebaseHandler.getContext());
         generalData();
     }
 
@@ -134,40 +134,40 @@ public class VoiceUtils {
         Log.d(TAG, "process: id = " + cmd);
         switch (cmd) {
             case ON_ALL_LIGHT: //on light
-                firebaseListener.setAutoLight(Protocol.ANALOG, false);
-                firebaseListener.setAutoLight(Protocol.DIGITAL, false);
+                firebaseHandler.setAutoLight(Protocol.ANALOG, false);
+                firebaseHandler.setAutoLight(Protocol.DIGITAL, false);
                 Log.d(TAG, "process: arr " + arrayList.toString());
                 for (String p : arrayList) {
-                    url = "users/" + firebaseListener.getUid() + "/" + "pin/" + p;
+                    url = "users/" + firebaseHandler.getUid() + "/" + "pin/" + p;
                     db = FirebaseDatabase.getInstance().getReference(url);
                     db.setValue(true);
                 }
                 break;
             case OFF_ALL_LIGHT: //off all light
-                firebaseListener.setAutoLight(Protocol.ANALOG, false);
-                firebaseListener.setAutoLight(Protocol.DIGITAL, false);
+                firebaseHandler.setAutoLight(Protocol.ANALOG, false);
+                firebaseHandler.setAutoLight(Protocol.DIGITAL, false);
                 Log.d(TAG, "process: arr " + arrayList.toString());
                 for (String p : arrayList) {
-                    url = "users/" + firebaseListener.getUid() + "/" + "pin/" + p;
+                    url = "users/" + firebaseHandler.getUid() + "/" + "pin/" + p;
                     db = FirebaseDatabase.getInstance().getReference(url);
                     db.setValue(false);
                 }
                 break;
             case ON_LIGHT: //on light with pin
-                url = "users/" + firebaseListener.getUid() + "/" + "pin/" + pin;
+                url = "users/" + firebaseHandler.getUid() + "/" + "pin/" + pin;
                 db = FirebaseDatabase.getInstance().getReference(url);
                 db.setValue(true);
                 break;
             case OFF_LIGHT: //off light with pin
-                url = "users/" + firebaseListener.getUid() + "/" + "pin/" + pin;
+                url = "users/" + firebaseHandler.getUid() + "/" + "pin/" + pin;
                 db = FirebaseDatabase.getInstance().getReference(url);
                 db.setValue(false);
                 break;
             case ON_AUTO_LIGHT: //on auto light
-                firebaseListener.setAutoLight(Protocol.DIGITAL, true);
+                firebaseHandler.setAutoLight(Protocol.DIGITAL, true);
                 break;
             case OFF_AUTO_LIGHT://off auto light
-                firebaseListener.setAutoLight(Protocol.DIGITAL, true);
+                firebaseHandler.setAutoLight(Protocol.DIGITAL, true);
                 break;
             case ON_FAN:
                 break;

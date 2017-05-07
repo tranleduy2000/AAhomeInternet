@@ -4,30 +4,15 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
-    <string name="t_n_ng_nh_p">Tên đăng nhập</string>
-    <string name="m_t_kh_u">Mật khẩu</string>
-    <string name="ng_nh_p">Đăng nhập</string>
     <string name="auto_login">Tự động đang nhập</string>
-    <string name="ng_nh_p_cap">ĐĂNG NHẬP</string>
-    <string name="quick_connect">Kết nối nhanh</string>
-    <string name="a_ch_ip">Địa chỉ IP</string>
-    <string name="c_ng">Cổng</string>
-    <string name="connecting">Đang kết nối …</string>
-    <string name="off">OFF</string>
     <string name="add_device">Add Device</string>
     <string name="add_mode">Add Mode</string>
-    <string name="title_activity_weather_maps">Map</string>
     <string name="device_id">ID: </string>
     <string name="device_name">Tên</string>
     <string name="device_description">Mô tả</string>
     <string name="device_commnad">Command</string>
     <string name="add">Thêm thiết bị</string>
-    <string name="on">ON</string>
     <string name="title_activity_room">RoomActivity</string>
-    <string name="key_dev">key_developer</string>
-    <string name="description_connect">Địa chỉ IP (IP Address): \r\nVào ứng dụng cài đặt (Setting) -> Wifi -> Nhấn vào Wifi của Arduino \r\nĐịa chỉ IP của Arduino có dạng: 192.168.4.x \r\nCổng (Port): 80</string>
-    <string name="description_ip">Địa chỉ IP (IP Address): \r\n Vào ứng dụng cài đặt (Setting) -> Wifi -> Nhấn vào Wifi của Arduino \r\nĐịa chỉ IP của Arduino có dạng: 192.168.4.x</string>
-    <string name="description_port">Cổng (Port): 80</string>
     <string name="system_security">Hệ thống bảo mật</string>
     <string name="alarm_system">Hệ thống báo cháy</string>
     <string name="door_system">Hệ thống cửa thông minh</string>
@@ -40,81 +25,20 @@
     </string-array>
 
 
-    <string name="label_google_sign_in">Firebase + Google Sign In</string>
-    <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
-
-    <string name="label_facebook_login">Firebase + Facebook Login</string>
-    <string name="desc_facebook_login">Use a Facebook Login credential to authenticate with Firebase.</string>
-
-    <string name="label_twitter_login">Firebase + Twitter Login</string>
-    <string name="desc_twitter_login">Use a Twitter Login credential to authenticate with Firebase.</string>
-
-    <string name="label_emailpassword">Email/Password Authentication</string>
-    <string name="desc_emailpassword">Use an email and password to authenticate with Firebase.</string>
-
-    <string name="label_anonymous_auth">Anonymous Authentication</string>
-    <string name="desc_anonymous_auth">Sign in anonymously and then later upgrade to a full Firebase Auth user..</string>
-
-    <string name="label_custom_auth">Custom Authentication</string>
-    <string name="desc_custom_auth">Use a custom token signed by your own server to authenticate with Firebase.</string>
-
-    <string name="hint_user_id">User ID</string>
-    <string name="get_custom_token">Get Token</string>
-    <string name="sign_in">Sign In</string>
-    <string name="create_account">Tạo tài khoản</string>
-    <string name="sign_out">Đăng xuất</string>
-    <string name="disconnect">Ngắt kết nối</string>
     <string name="loading">Đang tải …</string>
-    <string name="custom_token">Custom Token</string>
-    <string name="signed_out">Đã đăng xuất</string>
-    <string name="token_null">Token: null</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Mật khẩu</string>
-    <string name="desc_firebase_lockup">Firebase logo and name</string>
     <string name="auth_failed">Authentication failed</string>
-
-    <string name="firebase_status_fmt">Firebase User: %s</string>
-    <string name="firebase_user_management">Firebase User Management</string>
-
-    <string name="google_status_fmt">Google User: %s</string>
-    <string name="google_title_text">Google Sign In</string>
-
-    <string name="facebook_status_fmt">Facebook User: %s</string>
-    <string name="facebook_title_text">Facebook Login</string>
-
-    <string name="emailpassword_status_fmt">Email User: %s</string>
-    <string name="emailpassword_title_text">Email and Password</string>
-
-    <string name="twitter_status_fmt">Twitter User: %s</string>
-    <string name="twitter_title_text">Twitter Login</string>
-
-    <string name="id_fmt">User ID: %s</string>
-    <string name="email_fmt">Email: %s</string>
 
     <string name="action_sign_in_short">Đăng kí</string>
     <string name="email">Email</string>
     <string name="minimum_password">Mật khẩu quá ngắn, độ dài ít nhất 6 kí tự!</string>
-    <string name="change_email">Thay đổi Email</string>
-    <string name="change_password">Thay đổi mật khẩu</string>
-    <string name="send_password_reset_email">Gửi email đặt lại mật khẩu</string>
-    <string name="remove_user">Xóa ngươi dùng</string>
-    <string name="new_pass">Mật khẩu mới</string>
-    <string name="title_activity_profile">Firebase</string>
-    <string name="title_activity_login">Đăng nhập</string>
-    <string name="hint_name">Fullname</string>
     <string name="btn_login">Đăng nhập</string>
     <string name="btn_link_to_register">Chưa có tài khoản, đăng kí ngay!</string>
     <string name="btn_link_to_login">Đã có tài khoản, đăng nhập!</string>
-    <string name="title_activity_reset_password">Đặt lại mật khẩu</string>
     <string name="btn_forgot_password">Quên mật khẩu?</string>
     <string name="btn_reset_password">Đặt lại mật khẩu</string>
     <string name="btn_back">Trở về</string>
-    <string name="hint_new_email">Email mới</string>
-    <string name="btn_change">Thay đổi</string>
-    <string name="btn_send">Send</string>
-    <string name="btn_remove">Xóa</string>
-    <string name="btn_sign_out">Đăng xuất</string>
-    <string name="lbl_forgot_password">Quên mật khẩu?</string>
     <string name="forgot_password_msg">Nhập email tài khoản của bạn, chúng tôi sẽ gửi mail xác nhận đặt lại mật khẩu.</string>
     <string name="enter_email_address">Nhập địa chỉ email!</string>
     <string name="enter_password">Nhập mật khẩu!</string>
@@ -124,7 +48,6 @@
     <string name="thong_ke">THỐNG KÊ</string>
     <string name="mode">CHẾ ĐỘ</string>
     <string name="device">THIẾT BỊ</string>
-    <string name="camera">CAMERA</string>
     <string name="delete_failed">Xóa thất bại</string>
     <string name="do_you_want_delete_device">Bạn có muốn xóa thiết bị?</string>
     <string name="no">Không</string>
@@ -146,8 +69,6 @@
     <string name="add_devices">Thêm thiết bị</string>
     <string name="id_empty">ID không được trống</string>
     <string name="edit_infor_device">Chỉnh sửa thông tin thiết bị</string>
-    <string name="device_found">Đã tồn tại thiết bị</string>
-    <string name="edit_failed">Chỉnh sửa thất bại</string>
     <string name="pin">pin</string>
     <string name="delete_devices">Bạn có muốn xóa thiết bị?</string>
 </resources>

@@ -67,6 +67,37 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908929214000:android:ee0264508ad6ee35",
+        "android_client_info": {
+          "package_name": "com.duy.databaseservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908929214000-o45vv6s2jv4l4p03lheitndam0ck3bqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDbIEDMXBsLhWKv_SvJ6Ca4mPVNBXyA9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

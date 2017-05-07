@@ -10,6 +10,7 @@
     <application
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -17,9 +18,9 @@
         <activity
             android:name=".activities.LoginActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:hardwareAccelerated="true"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +29,7 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
+            android:configChanges="orientation|keyboardHidden" />
         <activity
             android:name=".activities.DeviceActivity"
             android:label="@string/add_device"

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.duy.aahomeinternet.EnvironmentTask;
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.activities.MapsActivity;
 import com.duy.aahomeinternet.R;
 import com.duy.aahomeinternet.activities.RoofActivity;
@@ -36,14 +36,14 @@ public class HomeFragment extends Fragment implements EnvironmentTask.Environmen
     private ProgressBar progressBar1, progressBar2;
     private EnvironmentTask environmentTask;
     private Handler handler = new Handler();
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.mContext = context;
         this.mActivity = getActivity();
-        this.mFirebase = new FirebaseListener(context);
+        this.mFirebase = new FirebaseHandler(context);
     }
 
     @Nullable

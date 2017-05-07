@@ -6,7 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.duy.aahomeinternet.FirebaseListener;
+import com.duy.aahomeinternet.FirebaseHandler;
 import com.duy.aahomeinternet.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RoofActivity extends AppCompatActivity {
 
     private Button btnOpen, btnClose;
-    private FirebaseListener mFirebase;
+    private FirebaseHandler mFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class RoofActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        mFirebase = new FirebaseListener(this);
+        mFirebase = new FirebaseHandler(this);
 
         initView();
         addEvent();
