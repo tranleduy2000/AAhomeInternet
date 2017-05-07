@@ -59,7 +59,7 @@ public class DeviceActivity extends AppCompatActivity {
 
     private void getDataFromIntent() {
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data");
+        Bundle bundle = intent.getBundleExtra("data");
         if (bundle != null) {
             type = bundle.getInt("type");
             if (type == 1) {//change info
@@ -87,7 +87,7 @@ public class DeviceActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(Preferences.DEVICE, deviceItem);
                         Intent intent = getIntent();
-                        intent.putExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data", bundle);
+                        intent.putExtra("data", bundle);
 
                         setResult(Variable.ACTIVITY_CHANGE_INFO_DEVICE, intent);
                         //   Log.e("ACTIVITY_CHANGE_INFO_DEVICE", "STEP 1");
@@ -113,7 +113,7 @@ public class DeviceActivity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable(Preferences.DEVICE, deviceItem);
                             Intent intent = getIntent();
-                            intent.putExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data", bundle);
+                            intent.putExtra("data", bundle);
                             setResult(Variable.ACTIVITY_ADD_DEVICE, intent);
                             DeviceActivity.this.finish();
                         }

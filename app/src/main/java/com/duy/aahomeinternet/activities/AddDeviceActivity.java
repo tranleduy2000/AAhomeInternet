@@ -54,7 +54,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(Preferences.DEVICE, deviceItem);
                     Intent intent = getIntent();
-                    intent.putExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data", bundle);
+                    intent.putExtra("data", bundle);
                     setResult(MainActivity.ACTIVITY_ADD_DEVICE, intent);
                     AddDeviceActivity.this.finish();
                 }

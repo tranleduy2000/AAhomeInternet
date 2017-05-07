@@ -1,6 +1,8 @@
 package com.duy.aahomeinternet;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -13,16 +15,19 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class EnvironmentTask {
+    @NonNull
     private Context mContext;
+    @Nullable
     private EnvironmentListener mListener;
+
     private FirebaseHandler mFirebase;
 
-    public EnvironmentTask(Context mContext, FirebaseHandler firebase) {
+    public EnvironmentTask(@NonNull Context mContext, FirebaseHandler firebase) {
         this.mContext = mContext;
         this.mFirebase = firebase;
     }
 
-    public EnvironmentTask(Context context, FirebaseHandler firebase, EnvironmentListener listener) {
+    public EnvironmentTask(Context context, FirebaseHandler firebase, @Nullable EnvironmentListener listener) {
         this.mContext = context;
         this.mFirebase = firebase;
         this.mListener = listener;
@@ -46,12 +51,15 @@ public class EnvironmentTask {
     private void initHumi() {
         String url2 = "users/" + mFirebase.getUid() + "/" + "temp/" + "current";
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(url2);
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot != null) {
-                    int h = dataSnapshot.getValue(Integer.class);
-                    if (mListener != null) mListener.onHumidityChange(h);
+                    if (dataSnapshot.getValue(int.class) != null) {
+                        int h = dataSnapshot.getValue(Integer.class);
+                        if (mListener != null) mListener.onHumidityChange(h);
+                    }
                 }
             }
 
@@ -70,8 +78,10 @@ public class EnvironmentTask {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot != null) {
-                    int temp = dataSnapshot.getValue(Integer.class);
-                    if (mListener != null) mListener.onTemperatureChange(temp);
+                    if (dataSnapshot.getValue(int.class) != null) {
+                        int temp = dataSnapshot.getValue(int.class);
+                        if (mListener != null) mListener.onTemperatureChange(temp);
+                    }
                 }
             }
 

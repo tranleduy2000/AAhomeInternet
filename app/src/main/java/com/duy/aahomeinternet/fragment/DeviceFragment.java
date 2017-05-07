@@ -17,16 +17,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.duy.aahomeinternet.activities.DeviceActivity;
 import com.duy.aahomeinternet.FirebaseHandler;
-import com.duy.aahomeinternet.activities.MainActivity;
 import com.duy.aahomeinternet.R;
+import com.duy.aahomeinternet.activities.DeviceActivity;
+import com.duy.aahomeinternet.activities.MainActivity;
 import com.duy.aahomeinternet.adapter.DeviceAdapter;
 import com.duy.aahomeinternet.adapter.EventListener;
 import com.duy.aahomeinternet.data.Database;
 import com.duy.aahomeinternet.items.DeviceItem;
 import com.duy.aahomeinternet.utils.Variable;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -105,34 +104,6 @@ public class DeviceFragment extends Fragment implements EventListener {
         String url = "users/" + mFirebase.getUid() + "/" + "devices/";
         //get database
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(url);
-        //add listener
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -146,7 +117,6 @@ public class DeviceFragment extends Fragment implements EventListener {
                             DeviceItem deviceItem = new DeviceItem();
                             deviceItem.setId(Integer.parseInt(String.valueOf(map.get("id"))));
                             deviceItem.setName(String.valueOf(map.get("name")));
-                            Log.d(TAG, deviceItem.getId() + " " + deviceItem.getName());
                             list.add(deviceItem);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -195,7 +165,7 @@ public class DeviceFragment extends Fragment implements EventListener {
         Bundle bundle = new Bundle();
         bundle.putInt("type", 1);
         bundle.putSerializable("item", deviceItem);
-        intent.putExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data", bundle);
+        intent.putExtra("data", bundle);
         startActivityForResult(intent, Variable.ACTIVITY_DEVICE);
     }
 

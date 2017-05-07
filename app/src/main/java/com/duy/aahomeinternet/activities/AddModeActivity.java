@@ -42,7 +42,7 @@ public class AddModeActivity extends AppCompatActivity {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(Preferences.MODE, modeItem);
                     Intent intent = getIntent();
-                    intent.putExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data", bundle);
+                    intent.putExtra("data", bundle);
                     setResult(MainActivity.ACTIVITY_ADD_MODE, intent);
                     AddModeActivity.this.finish();
                 }

@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
@@ -24,12 +23,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,31 +63,23 @@ public class MainActivity extends AppCompatActivity implements
     public static final int ACTIVITY_ADD_DEVICE = 1;
     public static final int ACTIVITY_ADD_MODE = 2;
     public static final String TAG = MainActivity.class.getName();
-    protected static final boolean DEBUG_APP = true;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private static final int REQ_CODE_SPEECH_INPUT = 1242;
-    private boolean connected = false;
     private Preferences preferences;
-    private SectionsPagerAdapter sectionsPagerAdapter;
     private ViewPager viewPager;
-    private FrameLayout linearLayout;
     private FloatingActionButton fab;
     private Database database;
-    private TabLayout tabLayout;
     private TextView txtLightSensor;
     private FirebaseHandler mFirebase;
     private GoogleApiClient mGoogleApiClient;
-    private LocationManager locationManager;
-    private String provider;
     private LocationRequest mLocationRequest;
-    private double currentLatitude;
-    private double currentLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mFirebase = new FirebaseHandler(this);
+
         initData();
         initView();
 
@@ -102,19 +93,21 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     protected void initView() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), MainActivity.this);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), MainActivity.this);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.addOnPageChangeListener(this);
         viewPager.setOffscreenPageLimit(sectionsPagerAdapter.getCount());
         viewPager.setAdapter(sectionsPagerAdapter);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setUpTabLayout(tabLayout);
-        linearLayout = (FrameLayout) findViewById(R.id.content_main);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 // The next two lines tell the new client that “this” current class will handle connection stuff
@@ -208,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements
                         Intent intent = new Intent(MainActivity.this, DeviceActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("type", 0);
-                        intent.putExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data", bundle);
+                        intent.putExtra("data", bundle);
                         startActivityForResult(intent, Variable.ACTIVITY_DEVICE);
                     }
                 });
@@ -371,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements
             case Variable.ACTIVITY_DEVICE:
                 if (resultCode == Variable.ACTIVITY_ADD_DEVICE) {
                     try {
-                        Bundle bundle = data.getBundleExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data");
+                        Bundle bundle = data.getBundleExtra("data");
                         final DeviceItem deviceItem = (DeviceItem) bundle.getSerializable(Preferences.DEVICE);
                         ArrayList<DeviceItem> arrayList = database.getAllDevice();
                         arrayList.add(deviceItem);
@@ -384,7 +377,7 @@ public class MainActivity extends AppCompatActivity implements
                     }
                 } else if (resultCode == Variable.ACTIVITY_CHANGE_INFO_DEVICE) {
                     try {
-                        Bundle bundle = data.getBundleExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data");
+                        Bundle bundle = data.getBundleExtra("data");
                         final DeviceItem deviceItem = (DeviceItem) bundle.getSerializable(Preferences.DEVICE);
                         database.updateDevice(deviceItem);
                         ArrayList<DeviceItem> arrayList = database.getAllDevice();

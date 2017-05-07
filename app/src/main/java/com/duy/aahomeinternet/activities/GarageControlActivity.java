@@ -58,7 +58,7 @@ public class GarageControlActivity extends AppCompatActivity {
 
     private void getData() {
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data");
+        Bundle bundle = intent.getBundleExtra("data");
         String ip = bundle.getString("ip");
         int port = bundle.getInt("port");
 //        socket = new Socket(ip, port);

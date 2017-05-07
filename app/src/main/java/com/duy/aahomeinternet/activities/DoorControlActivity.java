@@ -24,8 +24,6 @@ public class DoorControlActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_door_control);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Cửa chính");
         getData();
         initView();
     }
@@ -80,7 +78,7 @@ public class DoorControlActivity extends AppCompatActivity {
 
     private void getData() {
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("com/example/tranleduy/aahome/com.duy.aahomeinternet.data");
+        Bundle bundle = intent.getBundleExtra("data");
         String ip = bundle.getString("ip");
         int port = bundle.getInt("port");
 

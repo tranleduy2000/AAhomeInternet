@@ -71,4 +71,10 @@
     <string name="edit_infor_device">Chỉnh sửa thông tin thiết bị</string>
     <string name="pin">pin</string>
     <string name="delete_devices">Bạn có muốn xóa thiết bị?</string>
+    <string name="t_ng">Tự động</string>
+    <string name="ng">Đóng</string>
+    <string name="m">Mở</string>
+    <string name="s_a">Sửa</string>
+    <string name="x_a">Xóa</string>
+    <string name="xem_chi_ti_t">Xem chi tiết</string>
 </resources>
